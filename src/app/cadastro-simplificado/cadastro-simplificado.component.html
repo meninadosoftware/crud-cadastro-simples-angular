@@ -1,0 +1,107 @@
+<div class="mb-5"></div>
+<form [formGroup]="cadastroForm"   class="needs-validation" novalidate  >
+ <div class="card">
+     <div class="card-header">
+        <strong>Dados do cadastro</strong>
+     </div>
+     <div class="card-body">
+         <div class="col-12">
+             <div class="row">
+                 <div class="col-md-8">
+                     <div class="form-group">
+                         <label for="nome">Nome completo:</label>
+                         <input id="nome" type="text"class="form-control" formControlName="nome" maxlength="60"
+                         required/>
+                         <div class="invalid-feedback">
+                            Nome é obrigatório !
+                          </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="form-group">
+                      <label for="dtNasc">Data de nascimento:</label>
+                      <input id="dtNasc" type="date" class="form-control" formControlName="dtNasc"
+                      max="31-12-2100" min="01-01-1900" required/>
+                      <div class="invalid-feedback">
+                        Data de nascimento é obrigatória !
+                      </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+             
+                 <div class="col-md-8">
+                     <div class="form-group">
+                         <label for="telefone">Email:</label>
+                         <input id="telefone" type="email" class="form-control" formControlName="email"
+                         maxlength="100" required email />
+                         <div class="invalid-feedback">
+                            Email é obrigatório !
+                          </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="form-group">
+                         <label for="sexo">Sexo:</label>
+                         <select id="sexo" name="sexo" class="custom-select" formControlName="sexo"
+                         required>
+                         <option *ngFor="let sexo of sexos" [value]="sexo.cod">{{sexo.desc}}</option>
+                         </select>
+                         <div class="invalid-feedback">
+                            Sexo é obrigatório !
+                          </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="d-flex justify-content-center mb-2">
+        <button type="button" class="btn btn-outline-success" (click)="salvar()">
+            <i class="fa fa-save" aria-hidden="false"></i>
+            Salvar</button>
+     </div>     
+ </div>
+   <div class="mb-5"></div>
+    <div class="card ">
+        <h5 class="card-header"> Lista de cadastros</h5>
+        <div class="card-body">
+           <div class="table-responsive-md">
+        <table id="tabelaCadastro"  class="display" style="width:100%"  datatable [dtOptions]="dtOptions"   [dtTrigger]="dtTrigger" class="table table-bordered">
+           <thead class="bg-danger ">
+            <tr>
+                <th class="all" scope="col">Código</th>
+              <th class="all" scope="col">Nome</th>
+              <th class="all" scope="col">Data nascimento </th>
+              <th class="desktop"  scope="col">Email</th>
+              <th class="desktop"  scope="col">Sexo</th>
+              <th class="all"  scope="col">Ações</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let c of cadastros"> 
+              <td>{{c.id}}</td>
+              <td>{{c.nome}}</td>
+              <td>{{c.dtNasc }}</td>
+              <td>{{c.email  }}</td>
+              <td>{{c.sexo}}</td>
+            
+              <td class="d-flex justify-content-center" >
+                <button id="editar"  type="button"  class="btn btn-outline-warning mr-2" (click)="editar(c)"
+                    data-toggle="tooltip" data-placement="top" title="Editar" >
+                    <i class="fa fa-edit mr-2 "   aria-hidden="false"></i> 
+                  </button>
+                  <button class="ml-2" id="excluir"  type="button" class="btn btn-outline-danger" (click)="deleteCadastro()"
+                     data-toggle="tooltip" data-placement="top" title="Excluir"
+                     >
+                    <i class="fa fa-trash mr-2 "  aria-hidden="false" ></i>
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+</form>

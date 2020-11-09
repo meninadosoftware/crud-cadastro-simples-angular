@@ -1,0 +1,39 @@
+{
+  "cadastros": [
+    {
+      "id": 1,
+      "nome": "Camila    ",
+      "dtNasc": "14/11/1994",
+      "email": "camila@email.com",
+      "sexo": "Feminino"
+    },
+    {
+      "id": 2,
+      "nome": "Shawn Mendes    ",
+      "dtNasc": "08/08/1998",
+      "email": "shawn@email.com",
+      "sexo": "Masculino"
+    },
+    {
+      "id": 3,
+      "nome": " Taylor swift   ",
+      "dtNasc": "13/12/1989",
+      "email": "taylorS@email.com",
+      "sexo": "Feminino"
+    },
+    {
+      "id": 4,
+      "nome": "Charles  Gillespie   ",
+      "dtNasc": "26/08/1998",
+      "email": "ChGi@email.com",
+      "sexo": "Masculino"
+    },
+    {
+      "id": 5,
+      "nome": "Mik Morrone   ",
+      "dtNasc": "03/10/1990",
+      "email": "mik@email.com",
+      "sexo": "Masculino"
+    }
+  ]
+}
